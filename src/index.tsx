@@ -1,5 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
-import type { RNPlacesAutocompleteInterface } from './types/RNPlacesAutocompleteProps';
+import type { RNPlacesAutocompleteModule } from './types/GooglePlacesAutocompleteProps';
 
 const LINKING_ERROR =
   `The package 'react-native-places-autocomplete' doesn't seem to be linked. Make sure: \n\n` +
@@ -18,4 +18,4 @@ const PlacesAutocomplete = NativeModules.PlacesAutocomplete
       }
     );
 
-export default PlacesAutocomplete as RNPlacesAutocompleteInterface;
+export default PlacesAutocomplete as RNPlacesAutocompleteModule;

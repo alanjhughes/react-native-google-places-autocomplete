@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import type { Place } from 'src/types/RNPlacesAutocompleteProps';
+import type { Place } from 'src/types/GooglePlacesAutocompleteProps';
 
 interface ResultItemProps {
   place: Place;

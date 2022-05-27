@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import PlacesAutocomplete from 'react-native-places-autocomplete';
-
 import type {
   Place,
-  RNPlacesAutocompleteProps,
-} from 'src/types/RNPlacesAutocompleteProps';
+  GooglePlacesAutocompleteProps,
+} from 'src/types/GooglePlacesAutocompleteProps';
 import { Footer } from './Footer';
 import { ResultItem } from './ResultItem';
 import { SearchInput } from './SearchInput';
@@ -16,7 +15,7 @@ export function GooglePlacesAutocomplete({
   autoCompleteConfig,
   onPlaceSelected,
   ...props
-}: RNPlacesAutocompleteProps) {
+}: GooglePlacesAutocompleteProps) {
   const [inputValue, setInputValue] = React.useState('');
   const [results, setResults] = React.useState<Place[]>([]);
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Platform } from 'react-native';
 import { GooglePlacesAutocomplete } from '../../src/components/GooglePlacesAutocomplete';
+import { API_KEY } from '@env';
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <View style={{ marginTop: Platform.OS === 'ios' ? 44 : 0 }}>
         <Text style={styles.title}>Google Places Autocomplete</Text>
         <GooglePlacesAutocomplete
-          apiKey="API_KEY"
+          apiKey={API_KEY}
           autoCompleteConfig={{ countries: ['IE'] }}
           onPlaceSelected={(place) => {
             console.log(place);

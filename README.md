@@ -11,11 +11,19 @@ npm install react-native-places-autocomplete
 ## Usage
 
 ```js
-import { multiply } from 'react-native-places-autocomplete';
+import { GooglePlacesAutocomplete } from 'react-native-places-autocomplete';
 
 // ...
 
-const result = await multiply(3, 7);
+<View>
+  <GooglePlacesAutocomplete
+    apiKey={API_KEY}
+    autoCompleteConfig={{ countries: ['IE'] }}
+    onPlaceSelected={(place) => {
+      console.log(place);
+    }}
+  />
+</View>;
 ```
 
 ## Contributing

@@ -1,15 +1,15 @@
 import type { TextInput, ViewProps } from 'react-native';
 import type { CountryCode } from './CountryCode';
 
-export type AutocompletConfig = {
+export type AutocompleteConfig = {
   countries: CountryCode[];
   filter?: TypeFilter;
 };
 
-export interface RNPlacesAutocompleteProps extends ViewProps {
+export interface GooglePlacesAutocompleteProps extends ViewProps {
   apiKey: string;
   inputRef?: React.Ref<TextInput>;
-  autoCompleteConfig?: AutocompletConfig;
+  autoCompleteConfig?: AutocompleteConfig;
   placeholder?: string;
   onPlaceSelected: (details: PlaceDetails) => void;
 }
@@ -26,11 +26,11 @@ export type PlaceDetails = {
   formattedAddress: string;
 };
 
-export interface RNPlacesAutocompleteInterface {
+export interface RNPlacesAutocompleteModule {
   initPlaces: (apikey: string) => void;
   findPlaces: (
     query: string,
-    config?: AutocompletConfig,
+    config?: AutocompleteConfig,
     callback?: (results: Place[]) => void
   ) => void;
   placeDetails: (placeId: String) => Promise<PlaceDetails>;

@@ -1,5 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
-import type { RNPlacesAutocompleteModule } from './types/RNAutoComplete';
+import type { RNPlacesAutocompleteModule } from './types/RNAutoCompleteModule';
 
 const LINKING_ERROR =
   `The package 'react-native-places-autocomplete' doesn't seem to be linked. Make sure: \n\n` +

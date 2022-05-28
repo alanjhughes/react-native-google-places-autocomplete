@@ -1,5 +1,6 @@
 import type { TextInput, ViewProps } from 'react-native';
-import type { AutocompleteConfig, PlaceDetails } from './RNAutoComplete';
+import type { AutocompleteConfig } from './AutocompleteConfig';
+import type { PlaceDetails } from './PlaceDetails';
 
 export interface GooglePlacesAutocompleteProps extends ViewProps {
   apiKey: string;

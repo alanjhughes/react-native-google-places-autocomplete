@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { PlacesAutocomplete } from './RNPlacesAutocomplete';
 import type { GooglePlacesAutocompleteProps } from './types/GooglePlacesAutocompleteProps';
-import type { Place } from './types/RNAutoComplete';
+import type { Place } from './types/Place';
 
 const logo = require('./assets/powered_by_google_on_white.png');
 

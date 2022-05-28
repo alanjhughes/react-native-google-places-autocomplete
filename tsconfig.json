@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "react-native-places-autocomplete": [
-        "./src/index"
-      ]
-    },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "lib": [
-      "esnext"
-    ],
+    "jsx": "react-native",
+    "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -27,5 +19,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
-  }
+  },
+  "include": ["src", "babel.config.js"],
+  "exclude": ["node_modules", "lib", "docs", "example"]
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Platform } from 'react-native';
-import { GooglePlacesAutocomplete } from '../../src/components/GooglePlacesAutocomplete';
+import { GooglePlacesAutocomplete } from '../../src/GooglePlacesAutocomplete';
 import { API_KEY } from '@env';
 
 export default function App() {

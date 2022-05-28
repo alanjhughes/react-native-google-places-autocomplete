@@ -9,11 +9,21 @@
   "source": "src/index",
   "files": [
     "src",
-    "lib",
-    "android",
-    "ios",
+    "lib/commonjs",
+    "lib/module",
+    "lib/typescript",
+    "android/build.gradle",
+    "android/gradle.properties",
+    "android/src",
+    "ios/**/*.h",
+    "ios/**/*.m",
+    "ios/**/*.mm",
+    "ios/**/*.cpp",
+    "ios/**/*.swift",
     "cpp",
-    "react-native-places-autocomplete.podspec",
+    "README.md",
+    "ios/PlacesAutocomplete.xcodeproj/project.pbxproj",
+    "PlacesAutocomplete.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -102,7 +112,31 @@
     },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": "angular"
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "✨ Features"
+            },
+            {
+              "type": "fix",
+              "section": "🐛 Bug Fixes"
+            },
+            {
+              "type": "perf",
+              "section": "💨 Performance Improvements"
+            },
+            {
+              "type": "chore(deps)",
+              "section": "🛠️ Dependency Upgrades"
+            },
+            {
+              "type": "docs",
+              "section": "📚 Documentation"
+            }
+          ]
+        }
       }
     }
   },
@@ -147,7 +181,7 @@
       [
         "typescript",
         {
-          "project": "tsconfig.build.json"
+          "project": "tsconfig.json"
         }
       ]
     ]

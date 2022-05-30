@@ -2,6 +2,8 @@
 
 Google Places Autocomplete for React Native
 
+This library is a work in progress and currently very much written to suit my needs. I will improve it and make it more useful over time.
+
 ## Installation
 
 ```sh

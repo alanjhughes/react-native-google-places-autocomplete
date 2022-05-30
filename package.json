@@ -23,7 +23,7 @@
     "cpp",
     "README.md",
     "ios/PlacesAutocomplete.xcodeproj/project.pbxproj",
-    "PlacesAutocomplete.podspec",
+    "GooglePlacesAutocomplete.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",

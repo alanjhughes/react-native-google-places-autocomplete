@@ -20,7 +20,7 @@ import { GooglePlacesAutocomplete } from 'react-native-gp-autocomplete';
 <View>
   <GooglePlacesAutocomplete
     apiKey={API_KEY}
-    autoCompleteConfig={{ countries: ['IE'] }}
+    requestConfig={{ countries: ['IE'] }}
     onPlaceSelected={(place) => {
       console.log(place);
     }}

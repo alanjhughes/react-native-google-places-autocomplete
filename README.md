@@ -5,13 +5,13 @@ Google Places Autocomplete for React Native
 ## Installation
 
 ```sh
-npm install react-native-places-autocomplete
+npm install react-native-gp-autocomplete
 ```
 
 ## Usage
 
 ```js
-import { GooglePlacesAutocomplete } from 'react-native-places-autocomplete';
+import { GooglePlacesAutocomplete } from 'react-native-gp-autocomplete';
 
 // ...
 

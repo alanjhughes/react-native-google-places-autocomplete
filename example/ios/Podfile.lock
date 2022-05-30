@@ -12,7 +12,7 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - GooglePlaces (6.2.0)
-  - PlacesAutocomplete (1.0.0):
+  - GooglePlacesAutocomplete (1.0.0):
     - GooglePlaces (= 6.2.0)
     - React
     - React-Core
@@ -296,7 +296,7 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - PlacesAutocomplete (from `../..`)
+  - GooglePlacesAutocomplete (from `../..`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -342,7 +342,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  PlacesAutocomplete:
+  GooglePlacesAutocomplete:
     :path: "../.."
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
@@ -405,7 +405,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GooglePlaces: 53ce075bac2ea015afbd6577f47d186426a3a388
-  PlacesAutocomplete: 12292f8f306b0348d8e0cde72372761a3f6e22db
+  GooglePlacesAutocomplete: 2686ed96aa83b1d482129641a105b9ba6cc9c9ec
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
   RCTRequired: 00581111c53531e39e3c6346ef0d2c0cf52a5a37
   RCTTypeSafety: 07e03ee7800e7dd65cba8e52ad0c2edb06c96604
@@ -433,6 +433,6 @@ SPEC CHECKSUMS:
   ReactCommon: bf2888a826ceedf54b99ad1b6182d1bc4a8a3984
   Yoga: 17cd9a50243093b547c1e539c749928dd68152da
 
-PODFILE CHECKSUM: 3375bdce241dd4b86db3008cc484a53d5fccdfa3
+PODFILE CHECKSUM: b632f2d9aaeb0d23e2733db85315e60d937adce4
 
 COCOAPODS: 1.11.3

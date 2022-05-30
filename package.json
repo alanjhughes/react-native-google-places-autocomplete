@@ -1,5 +1,5 @@
 {
-  "name": "react-native-google-autocomplete",
+  "name": "react-native-gp-autocomplete",
   "version": "1.0.0",
   "description": "Google Places Autocomplete for React Native",
   "main": "lib/commonjs/index",
@@ -46,11 +46,11 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/alanjhughes/react-native-google-autocomplete",
+  "repository": "https://github.com/alanjhughes/react-native-google-places-autocomplete",
   "author": "Alan Hughes <hughesno1@gmail.com> (https://github.com/alanjhughes)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alanjhughes/react-native-google-autocomplete/issues"
+    "url": "https://github.com/alanjhughes/react-native-google-places-autocomplete/issues"
   },
   "homepage": "https://github.com/alanjhughes/react-native-goolge-autocomplete#readme",
   "publishConfig": {

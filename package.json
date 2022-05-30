@@ -81,9 +81,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "react-native-gesture-handler": ">=1.10.1",
-    "react-native-reanimated": ">=2.2.0"
+    "react-native": "*"
   },
   "jest": {
     "preset": "react-native",

@@ -1,35 +1,35 @@
 import * as React from 'react';
-import { Pressable, Text, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleSheet, ViewStyle } from 'react-native';
 import type { Place } from '../types';
 
 interface ResultItemProps {
   place: Place;
   onSelectPlace: (id: string, fullText: string) => void;
+  style?: ViewStyle;
 }
 
-export function ResultItem({ place, onSelectPlace }: ResultItemProps) {
+export function ResultItem({ place, onSelectPlace, style }: ResultItemProps) {
   return (
     <Pressable
       style={({ pressed }) => [
-        styles.container,
+        { ...defaultStyles.container, ...style },
         { opacity: pressed ? 0.5 : 1 },
       ]}
       onPress={() => onSelectPlace(place.placeId, place.fullText)}
     >
-      <Text style={styles.primary}>
+      <Text style={defaultStyles.primary}>
         {place.primaryText}{' '}
-        <Text style={styles.secondary}>{place.secondaryText}</Text>{' '}
+        <Text style={defaultStyles.secondary}>{place.secondaryText}</Text>{' '}
       </Text>
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
+const defaultStyles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flexDirection: 'row',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    padding: 10,
   },
   primary: {
     fontSize: 16,

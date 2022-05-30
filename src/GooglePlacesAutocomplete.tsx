@@ -8,12 +8,16 @@ import type { Place } from './types/Place';
 export function GooglePlacesAutocomplete({
   apiKey,
   placeholder,
-  autoCompleteConfig,
+  requestConfig,
   onPlaceSelected,
+  inputRef,
+  listStyle,
+  resultItemStyle,
   ...props
 }: GooglePlacesAutocompleteProps) {
   const [inputValue, setInputValue] = React.useState('');
   const [results, setResults] = React.useState<Place[]>([]);
+  const resultListStyle = { ...defaultStyles.listStyle, ...listStyle };
 
   React.useEffect(() => {
     PlacesAutocomplete.initPlaces(apiKey);
@@ -35,16 +39,16 @@ export function GooglePlacesAutocomplete({
 
   const onChangeText = React.useCallback(
     (text: string) => {
-      PlacesAutocomplete.findPlaces(text, autoCompleteConfig, setResults);
+      PlacesAutocomplete.findPlaces(text, requestConfig, setResults);
       setInputValue(text);
     },
-    [autoCompleteConfig]
+    [requestConfig]
   );
 
   return (
     <View {...props.style} {...props}>
       <SearchInput
-        ref={props.inputRef}
+        ref={inputRef}
         inputValue={inputValue}
         onChangeText={onChangeText}
         placeholder={placeholder || 'Search for your address'}
@@ -53,18 +57,22 @@ export function GooglePlacesAutocomplete({
 
       <FlatList
         data={results}
-        contentContainerStyle={styles.listStyle}
+        contentContainerStyle={resultListStyle}
         keyExtractor={(item) => item.placeId}
         ListFooterComponent={results.length > 0 ? ListFooter : undefined}
         renderItem={({ item }) => (
-          <ResultItem place={item} onSelectPlace={onSelectPlace} />
+          <ResultItem
+            place={item}
+            style={resultItemStyle}
+            onSelectPlace={onSelectPlace}
+          />
         )}
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const defaultStyles = StyleSheet.create({
   listStyle: {
     backgroundColor: 'white',
   },

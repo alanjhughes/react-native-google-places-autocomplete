@@ -1,3 +1,6 @@
+/**
+ * Valid country codes to filter results with
+ */
 export type CountryCode =
   | 'AA'
   | 'AB'

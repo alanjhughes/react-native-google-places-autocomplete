@@ -10,7 +10,7 @@ export default function App() {
         <Text style={styles.title}>Google Places Autocomplete</Text>
         <GooglePlacesAutocomplete
           apiKey={API_KEY}
-          autoCompleteConfig={{ countries: ['IE'] }}
+          requestConfig={{ countries: ['IE'] }}
           onPlaceSelected={(place) => {
             console.log(place);
           }}

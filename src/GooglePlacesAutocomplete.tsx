@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { ResultItem, SearchInput, ListFooter } from './components';
 import { PlacesAutocomplete } from './RNPlacesAutocomplete';
 import type { GooglePlacesAutocompleteProps } from './types/GooglePlacesAutocompleteProps';
@@ -11,13 +11,12 @@ export function GooglePlacesAutocomplete({
   requestConfig,
   onPlaceSelected,
   inputRef,
-  listStyle,
+  resultsContainerStyle,
   resultItemStyle,
   ...props
 }: GooglePlacesAutocompleteProps) {
   const [inputValue, setInputValue] = React.useState('');
   const [results, setResults] = React.useState<Place[]>([]);
-  const resultListStyle = { ...defaultStyles.listStyle, ...listStyle };
 
   React.useEffect(() => {
     PlacesAutocomplete.initPlaces(apiKey);
@@ -46,7 +45,7 @@ export function GooglePlacesAutocomplete({
   );
 
   return (
-    <View {...props.style} {...props}>
+    <View {...props}>
       <SearchInput
         ref={inputRef}
         inputValue={inputValue}
@@ -54,26 +53,19 @@ export function GooglePlacesAutocomplete({
         placeholder={placeholder || 'Search for your address'}
         clearButtonMode="while-editing"
       />
-
-      <FlatList
-        data={results}
-        contentContainerStyle={resultListStyle}
-        keyExtractor={(item) => item.placeId}
-        ListFooterComponent={results.length > 0 ? ListFooter : undefined}
-        renderItem={({ item }) => (
-          <ResultItem
-            place={item}
-            style={resultItemStyle}
-            onSelectPlace={onSelectPlace}
-          />
-        )}
-      />
+      {results.length > 0 ? (
+        <View style={resultsContainerStyle}>
+          {results.map((place) => (
+            <ResultItem
+              key={place.placeId}
+              place={place}
+              style={resultItemStyle}
+              onSelectPlace={onSelectPlace}
+            />
+          ))}
+          <ListFooter />
+        </View>
+      ) : null}
     </View>
   );
 }
-
-const defaultStyles = StyleSheet.create({
-  listStyle: {
-    backgroundColor: 'white',
-  },
-});

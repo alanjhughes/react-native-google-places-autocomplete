@@ -30,9 +30,9 @@ export interface GooglePlacesAutocompleteProps extends ViewProps {
   onPlaceSelected: (details: PlaceDetails) => void;
 
   /**
-   * The contentContainerStyle of the results list
+   * The container of the results list
    */
-  listStyle?: ViewStyle;
+  resultsContainerStyle?: ViewStyle;
 
   /**
    * The style of the result items

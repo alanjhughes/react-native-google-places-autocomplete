@@ -1,5 +1,5 @@
 {
-  "name": "react-native-places-autocomplete",
+  "name": "react-native-google-places-autocomplete",
   "version": "0.1.0",
   "description": "Google Places Autocomplete for React Native",
   "main": "lib/commonjs/index",

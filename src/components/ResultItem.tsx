@@ -11,16 +11,15 @@ interface ResultItemProps {
 export function ResultItem({ place, onSelectPlace, style }: ResultItemProps) {
   return (
     <Pressable
-      style={({ pressed }) => [
-        { ...defaultStyles.container, ...style },
-        { opacity: pressed ? 0.5 : 1 },
-      ]}
+      style={{ ...defaultStyles.container, ...style }}
       onPress={() => onSelectPlace(place.placeId, place.fullText)}
     >
-      <Text style={defaultStyles.primary}>
-        {place.primaryText}{' '}
-        <Text style={defaultStyles.secondary}>{place.secondaryText}</Text>{' '}
-      </Text>
+      {({ pressed }) => (
+        <Text style={[defaultStyles.primary, { opacity: pressed ? 0.5 : 1 }]}>
+          {place.primaryText}{' '}
+          <Text style={defaultStyles.secondary}>{place.secondaryText}</Text>{' '}
+        </Text>
+      )}
     </Pressable>
   );
 }

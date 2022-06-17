@@ -1,4 +1,5 @@
 import type { TextInput, ViewProps, ViewStyle } from 'react-native';
+import type { PlacesError } from './Error';
 import type { PlaceDetails } from './PlaceDetails';
 import type { RequestConfig } from './RequestConfig';
 
@@ -28,6 +29,11 @@ export interface GooglePlacesAutocompleteProps extends ViewProps {
    * Callback when the user selects a place from the result list. Receives a PlaceDetails object
    */
   onPlaceSelected: (details: PlaceDetails) => void;
+
+  /**
+   * Callback when an error occurs while fetching the results or retreiving place details. Receives an error message.
+   */
+  onSearchError?: (error: PlacesError) => void;
 
   /**
    * The container of the results list

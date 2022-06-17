@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { ResultItem, SearchInput, ListFooter } from './components';
 import { PlacesAutocomplete } from './RNPlacesAutocomplete';
+import type { PlacesError } from './types';
 import type { GooglePlacesAutocompleteProps } from './types/GooglePlacesAutocompleteProps';
 import type { Place } from './types/Place';
 
@@ -10,6 +11,7 @@ export function GooglePlacesAutocomplete({
   placeholder,
   requestConfig,
   onPlaceSelected,
+  onSearchError,
   inputRef,
   resultsContainerStyle,
   resultItemStyle,
@@ -30,22 +32,34 @@ export function GooglePlacesAutocomplete({
         setResults([]);
         onPlaceSelected(details);
       } catch (e) {
-        console.log(e);
+        const error = e as PlacesError;
+        onSearchError?.(error);
       }
     },
-    [onPlaceSelected]
+    [onPlaceSelected, onSearchError]
+  );
+
+  const onResult = React.useCallback(
+    (error, searchResults) => {
+      if (error) {
+        onSearchError?.(error);
+        return;
+      }
+      setResults(searchResults);
+    },
+    [onSearchError]
   );
 
   const onChangeText = React.useCallback(
-    (text: string) => {
-      PlacesAutocomplete.findPlaces(text, requestConfig, setResults);
+    async (text: string) => {
+      PlacesAutocomplete.findPlaces(text, requestConfig, onResult);
       setInputValue(text);
     },
-    [requestConfig]
+    [onResult, requestConfig]
   );
 
   return (
-    <View {...props}>
+    <ScrollView {...props}>
       <SearchInput
         ref={inputRef}
         inputValue={inputValue}
@@ -66,6 +80,6 @@ export function GooglePlacesAutocomplete({
           <ListFooter />
         </View>
       ) : null}
-    </View>
+    </ScrollView>
   );
 }

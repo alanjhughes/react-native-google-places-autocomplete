@@ -2,8 +2,17 @@ import * as React from 'react';
 import { StyleSheet, View, Text, Platform } from 'react-native';
 import { GooglePlacesAutocomplete } from '../../src/GooglePlacesAutocomplete';
 import { API_KEY } from '@env';
+import { PlaceDetails, PlacesError } from '../../src/types';
 
 export default function App() {
+  const onSearchError = React.useCallback((error: PlacesError) => {
+    console.log(error);
+  }, []);
+
+  const onPlaceSelected = React.useCallback((place: PlaceDetails) => {
+    console.log(place);
+  }, []);
+
   return (
     <View style={styles.screen}>
       <View style={{ marginTop: Platform.OS === 'ios' ? 44 : 0 }}>
@@ -11,9 +20,8 @@ export default function App() {
         <GooglePlacesAutocomplete
           apiKey={API_KEY}
           requestConfig={{ countries: ['IE'] }}
-          onPlaceSelected={(place) => {
-            console.log(place);
-          }}
+          onPlaceSelected={onPlaceSelected}
+          onSearchError={onSearchError}
         />
       </View>
     </View>

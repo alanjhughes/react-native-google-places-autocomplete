@@ -59,7 +59,7 @@ class PlacesAutocomplete: NSObject {
         DispatchQueue.main.async {
             GMSPlacesClient.shared().fetchPlace(fromPlaceID: id, placeFields: fields, sessionToken: nil) { place, error in
                 if let error = error {
-                    rejecter("Error", error.localizedDescription, nil)
+                    rejecter("Place not found", error.localizedDescription, nil)
                     return
                 }
                 
@@ -77,13 +77,16 @@ class PlacesAutocomplete: NSObject {
 }
 
 extension PlacesAutocomplete : GMSAutocompleteFetcherDelegate {
+    
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         if let callback = callback {
-            callback([Mappers.mapFromPredictions(predictions: predictions)])
+            callback([NSNull() ,Mappers.mapFromPredictions(predictions: predictions)])
         }
     }
     
     func didFailAutocompleteWithError(_ error: Error) {
-        print(error.localizedDescription)
+        if let callback = callback {
+            callback([error.localizedDescription, NSNull()])
+        }
     }
 }

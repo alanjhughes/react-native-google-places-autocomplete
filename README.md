@@ -17,15 +17,22 @@ import { GooglePlacesAutocomplete } from 'react-native-gp-autocomplete';
 
 // ...
 
-<View>
-  <GooglePlacesAutocomplete
-    apiKey={API_KEY}
-    requestConfig={{ countries: ['IE'] }}
-    onPlaceSelected={(place) => {
-      console.log(place);
-    }}
-  />
-</View>;
+const onSearchError = React.useCallback((error: PlacesError) => {
+  console.log(error);
+}, []);
+
+const onPlaceSelected = React.useCallback((place: PlaceDetails) => {
+  console.log(place);
+}, []);
+
+// ...
+
+<GooglePlacesAutocomplete
+  apiKey={API_KEY}
+  requestConfig={{ countries: ['US'] }}
+  onPlaceSelected={onPlaceSelected}
+  onSearchError={onSearchError}
+/>;
 ```
 
 ## Contributing

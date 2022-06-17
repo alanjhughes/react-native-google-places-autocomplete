@@ -1,6 +1,7 @@
 package com.reactnativeplacesautocomplete
 
 import com.facebook.react.bridge.*
+import com.google.android.gms.common.api.ApiException
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken
 import com.google.android.libraries.places.api.model.Place
@@ -52,10 +53,10 @@ class PlacesAutocompleteModule(private val reactContext: ReactApplicationContext
     placesClient.findAutocompletePredictions(request.build())
       .addOnSuccessListener { response ->
         val results = response.autocompletePredictions.map { mapFromPrediction(it) }
-        callback.invoke(mapToResultsArray(results))
+        callback.invoke(null, mapToResultsArray(results))
       }
       .addOnFailureListener {
-        callback.invoke("Prediction error", it)
+        callback.invoke("Prediction error", it.message, null)
       }
   }
 
@@ -77,7 +78,9 @@ class PlacesAutocompleteModule(private val reactContext: ReactApplicationContext
         promise.resolve(mapFromPlace(place))
       }
       .addOnFailureListener { exception: Exception ->
-        promise.reject("Error", exception)
+        if (exception is ApiException) {
+          promise.reject("Place not found", "Place not found: ${exception.statusCode}")
+        }
       }
   }
 }

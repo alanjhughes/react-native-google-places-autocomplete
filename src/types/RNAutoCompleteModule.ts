@@ -7,7 +7,7 @@ export interface RNPlacesAutocompleteModule {
   findPlaces: (
     query: string,
     config?: RequestConfig,
-    callback?: (results: Place[]) => void
+    callback?: (error: string, results: Place[]) => void
   ) => void;
   placeDetails: (placeId: String) => Promise<PlaceDetails>;
 }

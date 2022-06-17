@@ -1,6 +1,6 @@
 {
   "name": "react-native-gp-autocomplete",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Google Places Autocomplete for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -161,13 +161,6 @@
     "node_modules/",
     "lib/"
   ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
-  },
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
